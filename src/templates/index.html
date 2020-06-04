@@ -36,19 +36,28 @@
     <link href="{% static "css/eve.css" %}" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-light">
     <div class="container">
         {% include 'partials/topbar.html' %}
         {% include 'partials/navbar.html' %}
-        {% include 'partials/body.html' %}
-        {% block content %}
-        {% endblock %}
+        {% if body %}
+            {% include 'partials/body.html' %}
+        {% elif about %}
+            {% include 'partials/about.html' %}
+        {% elif members %}
+            {% include 'partials/members.html' %}
+        {% elif events %}
+            {% include 'partials/events.html' %}
+        {% elif read_more %}
+            {% include 'partials/read/continue.html' %}
+        {% endif %}
 
         {% include 'partials/footer.html' %}
     </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
         integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
         crossorigin="anonymous"></script>
+    <script src="{% static "js/app.js" %}"></script>
 
 </body>
 
