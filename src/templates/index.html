@@ -9,7 +9,6 @@
     <meta name="author" content="Vishnu">
     <title>Swasa Orgainsation</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/blog/">
 
     <!-- Bootstrap core CSS -->
     <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
@@ -50,6 +49,10 @@
             {% include 'partials/events.html' %}
         {% elif read_more %}
             {% include 'partials/read/continue.html' %}
+        {% elif read_event or read_event_vol%}
+            {% include 'partials/read/event.html' %}
+        {% elif volunter %}
+            {% include 'partials/volunter.html' %}
         {% endif %}
 
         {% include 'partials/footer.html' %}

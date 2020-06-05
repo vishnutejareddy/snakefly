@@ -2,21 +2,21 @@
         <div class="row">
             <div class="col-md-8 blog-main">
                 <h1 class="pb-4 mb-4 font-italic border-bottom text-info">
-                    Our Events
+                    Upcoming Events
                 </h1>
                 {% for event in all_events %}
                 <div class="blog-post">
                     <h2 class="blog-post-title text-info">{{ event.head }}</h2>
-                    <p class="blog-post-meta">{{ event.date}} by <b class="text-info">{{ event.author}}</b></p>
+                    <p class="blog-post-meta">{{ event.date}} at <b class="text-info">{{ event.place}}</b></p>
     
                     <p class="text-justify">{{ event.content }}</p>
                 </div><!-- /.blog-post -->
                 {% endfor %}
     
-                <!-- <nav class="blog-pagination">
-                    <a class="btn btn-outline-primary" href="#">button-1</a>
-                    <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">button-2</a>
-                </nav> -->
+                <nav class="blog-pagination">
+                    <a class="btn btn-outline-info" href="#">Join</a>
+                    <a class="btn btn-outline-info" href="#">Donate</a>
+                </nav>
     
             </div><!-- /.blog-main -->
     

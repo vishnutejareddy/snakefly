@@ -105,4 +105,8 @@
   .blog-footer p:last-child {
     margin-bottom: 0;
   }
+
+  .img-fluid {
+    border-radius: 0.25rem !important;
+  }
   

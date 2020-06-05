@@ -1,0 +1,33 @@
+<aside class="col-md-4 blog-sidebar">
+        <div class="p-4 mb-3 rounded">
+            <h4 class="font-italic text-info">About</h4>
+            {% if events or read_event or body %}
+            <p class="mb-0 text-info">These are the events our Organisation has conducted since its foundation. There are also blog posts created for Rural development.</p>
+            {% elif volunter or read_event or read_event_vol or body %}
+            <p class="mb-0 text-info">These are the upcoming events you can volunteer and join us</p>
+            {% endif %}
+        </div>
+
+        <div class="p-4">
+            <h4 class="font-italic text-info">Other Events</h4>
+            <ol class="list-unstyled mb-0">
+                {% if events or read_event or body %}
+                {% for event in all_events %}
+                <li><a href="/events/{{ event.id }}">{{ event.head }}</a></li>
+                {% endfor %}
+                {% elif volunter or read_event_vol or body %}
+                {% for event in all_events %}
+                <li><a href="/volunter/{{ event.id }}">{{ event.head }}</a></li>
+                {% endfor %}
+                {% endif %}
+        </div>
+
+        <div class="p-4">
+            <h4 class="font-italic text-info">Social Media Links</h4>
+            <ol class="list-unstyled">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Facebook</a></li>
+            </ol>
+        </div>
+    </aside><!-- /.blog-sidebar -->
