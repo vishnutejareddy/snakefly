@@ -11,4 +11,5 @@ urlpatterns = [
     path('events/<int:id>', views.read_event, name='read_event'),
     path('volunter/', views.volunter, name='volunter'),
     path('volunter/<int:id>', views.read_volunter_event, name='read_volunter_event'),
+    path('financial_report/', views.financial_report, name='financial_report'),
 ]

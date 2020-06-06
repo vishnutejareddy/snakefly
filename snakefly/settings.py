@@ -29,7 +29,7 @@ SECRET_KEY = '%p59^iqa#h(6kx9%2=-buhgqcz13)#in=-w__!m%2m+%l!+bsq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://snakefly.herokuapp.com/']
+ALLOWED_HOSTS = ['https://snakefly.herokuapp.com/','127.0.0.1']
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

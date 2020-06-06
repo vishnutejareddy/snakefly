@@ -1,6 +1,8 @@
-from django.shortcuts import render 
-from .models import Event,Upcoming_Event
+from django.shortcuts import render, get_object_or_404
+from .models import Event,Upcoming_Event,Finance
 from django.http import JsonResponse
+from collections import OrderedDict
+from .fusioncharts import FusionCharts
 
 
 # Create your views here.
@@ -34,3 +36,25 @@ def read_volunter_event(request,id):
     all_volunter_events = list(Upcoming_Event.objects.values())
     event = list(Upcoming_Event.objects.values())[id-1]
     return render(request, 'index.html', {'read_event_vol':True, 'event': event, 'all_events': all_volunter_events})
+
+def financial_report(request):
+    dataSource = OrderedDict()
+    dataSource["data"] = []
+    # The data for the chart should be in an array wherein each element of the array  is a JSON object having the `label` and `value` as keys.
+
+    for finance in Finance.objects.raw('SELECT * FROM src_finance'):
+        dataSource["data"].append({"label": finance.monthpublished(), "value": finance.amount_exp})
+
+    chartConfig = OrderedDict()
+    chartConfig["caption"] = "Financial Report for the Year 2020"
+    chartConfig["subCaption"] = "In Rupees vs Month"
+    chartConfig["xAxisName"] = "Month"
+    chartConfig["yAxisName"] = "Rupees"
+    chartConfig["numberSuffix"] = "K"
+    chartConfig["theme"] = "fusion"
+    chartConfig['bgColor'] = "#17a2b8"
+    chartConfig['labelDisplay'] = "rotate"
+
+    dataSource["chart"] = chartConfig
+    column2D = FusionCharts("column3d", "myFirstChart", "900", "600", "myFirstchart-container", "json", dataSource)
+    return render(request, 'index.html', {'financial_report': True, 'output': column2D.render()})
