@@ -65,3 +65,9 @@ def our_projects(request):
         'my_projects': True,
         'all_events': all_projects
     })
+
+def raise_funds(request):
+    return render(request, 'index.html')
+
+def contact(request):
+    return render(request, 'index.html', {'contact':True})
