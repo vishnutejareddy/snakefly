@@ -1,0 +1,9 @@
+
+{% for event in all_events %}
+<div class="jumbotron p-4 p-md-5 text-white rounded bg-info">
+    <div class="px-0">
+        <h1 class="display-4 font-italic">{{ event.head }}</h1>
+        <p class="lead my-3">{{ event.content }}</p>
+    </div>
+</div>
+{% endfor %}

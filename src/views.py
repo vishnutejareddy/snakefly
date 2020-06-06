@@ -25,7 +25,7 @@ def read_more(request):
 
 def read_event(request,id):
     all_events = list(Event.objects.values())
-    event = list(Event.objects.values())[id-1]
+    event = Event.objects.get(id=id)
     return render(request, 'index.html', {'read_event':True, 'event': event, 'all_events': all_events})
 
 def volunter(request):
@@ -34,7 +34,7 @@ def volunter(request):
 
 def read_volunter_event(request,id):
     all_volunter_events = list(Upcoming_Event.objects.values())
-    event = list(Upcoming_Event.objects.values())[id-1]
+    event = Upcoming_Event.objects.get(id=id)
     return render(request, 'index.html', {'read_event_vol':True, 'event': event, 'all_events': all_volunter_events})
 
 def financial_report(request):
@@ -58,3 +58,10 @@ def financial_report(request):
     dataSource["chart"] = chartConfig
     column2D = FusionCharts("column3d", "myFirstChart", "900", "600", "myFirstchart-container", "json", dataSource)
     return render(request, 'index.html', {'financial_report': True, 'output': column2D.render()})
+
+def our_projects(request):
+    all_projects = list(Event.objects.values())
+    return render(request, 'index.html', {
+        'my_projects': True,
+        'all_events': all_projects
+    })

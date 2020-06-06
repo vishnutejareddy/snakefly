@@ -57,6 +57,8 @@
             {% include 'partials/volunter.html' %}
         {% elif financial_report %}
             {% include 'partials/financial.html' %}
+        {% elif my_projects %}
+            {% include 'partials/projects.html' %}
         {% endif %}
 
         {% include 'partials/footer.html' %}
