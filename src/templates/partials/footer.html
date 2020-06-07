@@ -6,4 +6,9 @@
     <p>
         <a href="#">Back to top</a>
     </p>
+    {% if user.is_authenticated %}
+    <p><a href="/accounts/logout" class="text-success">Logout</a></p>
+    {% else %}
+    <p><a href="/accounts/login" class="text-success">Login</a></p>
+    {% endif %}
 </footer>

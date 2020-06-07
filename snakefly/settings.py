@@ -17,7 +17,9 @@ import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR,'src/templates')
+TEMPLATE_DIR1 = os.path.join(BASE_DIR,'payments/templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'src/static')
+STATIC_DIR1 = os.path.join(BASE_DIR, 'payments/static')
 
 
 # Quick-start development settings - unsuitable for production
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'src',
+    'payments',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +63,7 @@ ROOT_URLCONF = 'snakefly.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,],
+        'DIRS': [TEMPLATE_DIR, TEMPLATE_DIR1,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,6 +132,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     STATIC_DIR,
+    STATIC_DIR1,
 ]
+
+PAYTM_MERCHANT_ID = '<your_merchant_id>'
+PAYTM_SECRET_KEY = '<your_paytm_secret_key>'
+PAYTM_WEBSITE = 'WEBSTAGING'
+PAYTM_CHANNEL_ID = 'WEB'
+PAYTM_INDUSTRY_TYPE_ID = 'Retail'
 
 django_on_heroku.settings(locals())

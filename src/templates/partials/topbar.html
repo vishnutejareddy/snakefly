@@ -16,7 +16,10 @@
             <path d="M21 21l-5.2-5.2"></path>
           </svg>
         </a> -->
-        <a class="btn btn-sm btn-outline-secondary" href="#">Donate</a>
+        <a class="btn btn-sm btn-outline-secondary" href="/donate/pay">Donate</a>
+        {% if user.is_authenticated %}
+        <p class="pt-3 pl-1"><i class="material-icons">check</i></p>
+        {% endif %}
       </div>
     </div>
   </header>

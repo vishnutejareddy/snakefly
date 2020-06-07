@@ -1,4 +1,5 @@
-from django.urls import path
+from django.urls import path,include
+from django.contrib.auth.views import LoginView
 
 from . import views
 
@@ -14,5 +15,8 @@ urlpatterns = [
     path('financial_report/', views.financial_report, name='financial_report'),
     path('all_projects/', views.our_projects, name="all_projects"),
     path('raise_funds/', views.raise_funds, name="raise_funds"),
-    path('contact/', views.contact, name="contact")
+    path('contact/', views.contact, name="contact"),
+    # path('login/', LoginView.as_view(), name='login'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/profile/', views.redirect_index, name="redirect_index"),
 ]

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from .models import Event,Upcoming_Event,Finance
 from django.http import JsonResponse
 from collections import OrderedDict
@@ -71,3 +71,6 @@ def raise_funds(request):
 
 def contact(request):
     return render(request, 'index.html', {'contact':True})
+
+def redirect_index(request):
+    return redirect('/')
