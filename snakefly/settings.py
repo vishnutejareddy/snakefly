@@ -141,4 +141,9 @@ PAYTM_WEBSITE = 'WEBSTAGING'
 PAYTM_CHANNEL_ID = 'WEB'
 PAYTM_INDUSTRY_TYPE_ID = 'Retail'
 
+
+# for sending emails
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+
 django_on_heroku.settings(locals())
